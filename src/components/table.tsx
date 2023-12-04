@@ -19,6 +19,7 @@ export default function CustomizedTables({ matchData }: TableProps): JSX.Element
                     <th key={"match"}>Match</th>
                     <th key={"round"}>Round</th>
                     <th key={"underway"}>Underway</th>
+                    <th key={"station"}>Station</th>
                 </tr>
                 
             </thead>
@@ -35,6 +36,7 @@ export default function CustomizedTables({ matchData }: TableProps): JSX.Element
                                 fontSize: '1.2vw'
                             }}
                             >{match.underway ? `Yes` : `No`}</td>
+                        <td key={Math.random()}>{match.station !== '' ? `${match.station}` : `N/A`}</td>
                     </tr>
                 ))}
             </tbody>

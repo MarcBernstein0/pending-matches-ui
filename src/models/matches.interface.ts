@@ -6,6 +6,7 @@ export interface Match {
     player2_name: string;
     round: number;
     underway: boolean;
+    station: string;
 }
 
 export interface Matches {
