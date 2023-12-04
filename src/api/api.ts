@@ -7,7 +7,8 @@ const API_URL = () : string => {
     if (process.env.NODE_ENV === "development") {
         return "http://localhost:8080"
     }
-    return "https://challonge-match-display-backend.onrender.com"
+    
+    return "https://pending-matches.onrender.com"
 };
 
 

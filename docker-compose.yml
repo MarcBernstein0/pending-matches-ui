@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./container/Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - PORT=80

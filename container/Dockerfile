@@ -5,7 +5,7 @@ WORKDIR /app
 # Set env variable
 ENV PATH /app/node_modules/.bin:${PATH} 
 
-COPY ./frontend ./
+COPY ./ ./
 
 RUN chmod +x ./container/scripts/set-env.sh \
     ./container/scripts/set-env.sh && \
