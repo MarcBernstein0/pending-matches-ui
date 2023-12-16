@@ -21,7 +21,7 @@ export default function CustomizedTables({ matchData }: TableProps): JSX.Element
                     <th key={"underway"}>Underway</th>
                     <th key={"station"}>Station</th>
                 </tr>
-                
+
             </thead>
             <tbody>
                 {matchDataList.slice(0, 16).map(match => (
@@ -29,14 +29,18 @@ export default function CustomizedTables({ matchData }: TableProps): JSX.Element
                         fontWeight: 'bold',
                     }}>
                         <td key={Math.random()}>{`${match.player1_name} vs ${match.player2_name}`}</td>
-                        <td key={Math.random()}>{match.round <= -1 ? `losers ${Math.abs(match.round)}`: `winners ${match.round}`}</td>
+                        <td key={Math.random()}>{match.round <= -1 ? `losers ${Math.abs(match.round)}` : `winners ${match.round}`}</td>
                         <td key={Math.random()}
                             style={{
                                 color: match.underway ? 'green' : 'red',
                                 fontSize: '1.2vw'
                             }}
-                            >{match.underway ? `Yes` : `No`}</td>
-                        <td key={Math.random()}>{match.station !== '' ? `${match.station}` : `N/A`}</td>
+                        >{match.underway ? `Yes` : `No`}</td>
+                        <td key={Math.random()}
+                            style={{
+                                fontSize: '1.2vw'
+                            }}
+                        >{match.station !== '' ? `${match.station}` : ``}</td>
                     </tr>
                 ))}
             </tbody>
