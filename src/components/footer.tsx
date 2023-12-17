@@ -15,7 +15,7 @@ export default function Footer(): ReactElement {
         <div className="footer-container">
           <div className="item1">
             <Typography color="white" variant="h5">
-              Pendending Matches
+              Pending Matches
             </Typography>
           </div>
 
@@ -28,21 +28,21 @@ export default function Footer(): ReactElement {
           <a
             href="https://github.com/MarcBernstein0/challonge-match-display"
             target="_blank"
-            className="item3"
+            className="item3" rel="noreferrer"
           >
             <GitHub />
           </a>
           <a
             href="https://twitter.com/TravelingCtrlr"
             target="_blank"
-            className="item4"
+            className="item4" rel="noreferrer"
           >
             <Twitter />
           </a>
           <a
             href="https://www.youtube.com/"
             target="_blank"
-            className="item5"
+            className="item5" rel="noreferrer"
           >
             <Icon icon="mdi:twitch" />
           </a>
