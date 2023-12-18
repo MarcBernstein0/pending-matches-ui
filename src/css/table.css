@@ -17,11 +17,12 @@ table tbody tr td {
     border-style: solid;
     border-color: black;
     text-align: center;
+    font-size: x-large;
 }
 
 table tbody tr td:last-child {
     border-right: 0px;
-    font-size: medium;
+    /* font-size: medium; */
 }
 
 th {
