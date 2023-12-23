@@ -21,7 +21,7 @@ function App() {
     console.log(process.env);
     Match.getMatchesV1(parsedDate)
       .then((data) => {
-        console.log("data result came back", data);
+        console.log("data result came back");
         setIsLoaded(true);
         setMatches(data);
       })
@@ -34,7 +34,7 @@ function App() {
     const interval = setInterval(() => {
       Match.getMatchesV1(parsedDate)
         .then((data) => {
-          console.log("data result came back", data);
+          console.log("data result came back");
           setIsLoaded(true);
           setMatches(data);
         })

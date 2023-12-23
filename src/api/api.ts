@@ -33,8 +33,7 @@ const requests = {
 
 export const Match = {
     getMatchesV1: (date: Moment): Promise<Matches[]> => {
-        // const dateStr = date.format("YYYY-MM-DD"); 2023-12-03
-        const dateStr = "2023-12-03";
+        const dateStr = date.format("YYYY-MM-DD"); 
         const params = {
             date: dateStr
         }
