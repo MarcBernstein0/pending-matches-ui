@@ -8,6 +8,7 @@ import moment from 'moment';
 import { AxiosError } from 'axios';
 import { BrowserView } from 'react-device-detect';
 import Footer from './components/footer';
+import AutoCompleteForm from './components/autoCompleteForm';
 
 
 
@@ -51,7 +52,15 @@ function App() {
 
   return (
     <span>
-      {isLoaded ? (
+      <Grid display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh"
+      >
+        <AutoCompleteForm />
+      </Grid>
+
+      {/* {isLoaded ? (
         <span>
           <Grid container spacing={3}>
             {matchResult.length === 0 ?
@@ -87,7 +96,7 @@ function App() {
           minHeight="100vh"
         >
           <LoadingAnimation />
-        </Grid>}
+        </Grid>} */}
       <Footer />
     </span>
 
