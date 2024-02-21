@@ -9,6 +9,7 @@ import { AxiosError } from 'axios';
 import { BrowserView } from 'react-device-detect';
 import Footer from './components/footer';
 import AutoCompleteForm from './components/autoCompleteForm';
+import Form from './components/form';
 
 
 
@@ -57,7 +58,7 @@ function App() {
         alignItems="center"
         minHeight="100vh"
       >
-        <AutoCompleteForm />
+        <Form />
       </Grid>
 
       {/* {isLoaded ? (
