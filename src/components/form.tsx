@@ -1,31 +1,20 @@
 import React, { useState } from "react";
 import "../css/footer.css"
-import { Button, Container, Icon, IconButton, TextField } from "@mui/material";
+import { Autocomplete, Button, Container, IconButton, TextField } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
+import SendIcon from '@mui/icons-material/Send';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-// const useStyles = makeStyles((theme: { spacing: (arg0: number) => any; }) => ({
-//   root: {
-//     "& .MuiTextField-root": {
-//       margin: theme.spacing(1),
-//     },
-//   },
-//   button: {
-//     margin: theme.spacing(1),
-//   },
-// }));
-
 const Form = () => {
-  // const classes = useStyles();
 
   const [inputFields, setInputFields] = useState([
-    { game: "blah" },
-    { game: "game" },
+    { game: "Street Fighter 6" },
   ]);
 
   const [userInput, setUserInput] = useState("");
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    console.log(event);
     setUserInput(event.target.value);
   };
 
@@ -48,11 +37,15 @@ const Form = () => {
 
   return (
     <div className="Form">
-      <h1>Dynamic Form In React</h1>
+      <h1
+        style={{
+          textAlign: "center"
+        }}
+      >GAMES TO DISPLAY</h1>
       <Container className="Container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           {inputFields.map((inputField, index) => (
-            <div key={index}>
+            <div key={index} >
               <p>{inputField.game}</p>
               <IconButton onClick={() => handleRemoveFields(index)}>
                 <RemoveIcon />
@@ -63,8 +56,8 @@ const Form = () => {
             </div>
           ))}
           <TextField
-            name="firstName"
-            label="First Name"
+            name="gameName"
+            label="Game Name"
             variant="filled"
             value={userInput}
             onChange={(event) => handleChangeInput(event)}
@@ -73,15 +66,34 @@ const Form = () => {
             variant="contained"
             color="primary"
             type="submit"
-            endIcon={<Icon>send</Icon>}
+            endIcon={<SendIcon>send</SendIcon>}
             onClick={handleSubmit}
           >
-            Send
+            Add Game
           </Button>
         </form>
       </Container>
     </div>
   );
 };
+
+interface AutocompleteOption {
+  label: string;
+}
+
+const options: AutocompleteOption[] = [
+  {
+      label: 'Street Fighter 6',
+  },
+  {
+      label: 'GUILTY GEAR -STRIVE-',
+  },
+  {
+      label: 'Tekken 8',
+  },
+  {
+      label: 'Under Night In-Birth',
+  },
+]
 
 export default Form;
