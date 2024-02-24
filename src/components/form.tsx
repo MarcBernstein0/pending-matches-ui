@@ -18,6 +18,8 @@ const Form = () => {
     setUserInput(event.target.value);
   };
 
+  // const handle 
+
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const values = [...inputFields, { game: userInput }];
@@ -47,11 +49,10 @@ const Form = () => {
           {inputFields.map((inputField, index) => (
             <div key={index} >
               <p>{inputField.game}</p>
-              <IconButton onClick={() => handleRemoveFields(index)}>
+              <IconButton sx={{
+                display: 'inline-block'
+              }} onClick={() => handleRemoveFields(index)}>
                 <RemoveIcon />
-              </IconButton>
-              <IconButton onClick={() => handleAddFields()}>
-                <AddIcon />
               </IconButton>
             </div>
           ))}
@@ -67,33 +68,23 @@ const Form = () => {
             color="primary"
             type="submit"
             endIcon={<SendIcon>send</SendIcon>}
-            onClick={handleSubmit}
+            onClick={handleAddFields}
           >
             Add Game
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            endIcon={<SendIcon>send</SendIcon>}
+            onClick={handleSubmit}
+          >
+            Submit Form
           </Button>
         </form>
       </Container>
     </div>
   );
 };
-
-interface AutocompleteOption {
-  label: string;
-}
-
-const options: AutocompleteOption[] = [
-  {
-      label: 'Street Fighter 6',
-  },
-  {
-      label: 'GUILTY GEAR -STRIVE-',
-  },
-  {
-      label: 'Tekken 8',
-  },
-  {
-      label: 'Under Night In-Birth',
-  },
-]
 
 export default Form;
