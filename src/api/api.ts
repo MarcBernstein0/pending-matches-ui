@@ -3,7 +3,6 @@ import { Moment } from "moment";
 import { Matches } from "../models/matches.interface";
 
 const API_URL = () : string => {
-    console.log(process.env.NODE_ENV);
     if (process.env.NODE_ENV === "development") {
         return "http://localhost:8080"
     }

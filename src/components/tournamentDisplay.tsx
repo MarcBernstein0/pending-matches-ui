@@ -44,7 +44,7 @@ export default function TournamentDisplay({ gamesList }: TournamentDisplayProps)
     return () => clearInterval(interval);
 
 
-  }, []);
+  }, [gamesList]);
 
 
   return (
