@@ -51,7 +51,7 @@ export default function TournamentDisplay({ gamesList }: TournamentDisplayProps)
     <span>
       {isLoaded ? (
         <span>
-          <Grid container spacing={3}>
+          <Grid container spacing={1.5}>
             {matchResult.length === 0 ?
               <Grid item xs={12}>
                 <h1 style={{
@@ -62,7 +62,7 @@ export default function TournamentDisplay({ gamesList }: TournamentDisplayProps)
               </Grid>
               : matchResult.map((game) => (
                 <Grid item sm={
-                  matchResult.length <= 2 ? (12 / matchResult.length) : 4
+                  matchResult.length <= 2 ? (12 / matchResult.length) : 6
                 }>
                   <CustomizedTables matchData={game} />
                 </Grid>
