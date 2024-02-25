@@ -3,7 +3,6 @@ import { Moment } from "moment";
 import { Matches } from "../models/matches.interface";
 
 const API_URL = () : string => {
-    console.log(process.env.NODE_ENV);
     if (process.env.NODE_ENV === "development") {
         return "http://localhost:8080"
     }
@@ -32,10 +31,10 @@ const requests = {
 };
 
 export const Match = {
-    getMatchesV1: (date: Moment): Promise<Matches[]> => {
-        const dateStr = date.format("YYYY-MM-DD"); 
+    getMatchesV1: (date: Moment, gamesList: string[]): Promise<Matches[]> => {
         const params = {
-            date: dateStr
+            date: date.format("YYYY-MM-DD"),
+            games: gamesList.toString()
         }
         return requests.get('/api/v1/matches', params);
     },
