@@ -32,10 +32,10 @@ const requests = {
 };
 
 export const Match = {
-    getMatchesV1: (date: Moment): Promise<Matches[]> => {
-        const dateStr = date.format("YYYY-MM-DD"); 
+    getMatchesV1: (date: Moment, gamesList: string[]): Promise<Matches[]> => {
         const params = {
-            date: dateStr
+            date: date.format("YYYY-MM-DD"),
+            games: gamesList.toString()
         }
         return requests.get('/api/v1/matches', params);
     },
