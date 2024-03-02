@@ -1,4 +1,4 @@
-FROM node:16.16.0-alpine3.16 AS builder
+FROM node:18.19.1 AS builder
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
 # Copies static resources from builder stage
-COPY --from=builder /app/build .
+COPY --from=builder /app/dist .
 
 COPY --from=builder /app/container/templates/default.conf.template /etc/nginx/conf.d/default.conf.template
 

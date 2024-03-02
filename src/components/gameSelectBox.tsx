@@ -36,7 +36,7 @@ export default function GameSelectBox({ setGamesList }: GameSelectBoxProps) {
             id="multiple-limit-tags"
             options={gameOptions}
             getOptionLabel={(option) => option}
-            onChange={(event, value) => setSelectedGames(value)}
+            onChange={(_event, value) => setSelectedGames(value)}
             renderInput={(params) => (
               <TextField {...params} label="Games" placeholder="Select Game" />
             )}
