@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
-import { Matches } from "../models/matches.interface";
-import moment from "moment";
-import { Match } from "../api/api";
-import { AxiosError } from "axios";
 import { Grid } from "@mui/material";
-import CustomizedTables from "./table";
+import { AxiosError } from "axios";
+import { Moment } from "moment";
+import { useEffect, useState } from "react";
+import { Match } from "../api/api";
+import { Matches } from "../models/matches.interface";
 import LoadingAnimation from "./loading";
+import CustomizedTables from "./table";
 
 interface TournamentDisplayProps {
   gamesList: string[];
+  date: Moment;
 }
 
-export default function TournamentDisplay({ gamesList }: TournamentDisplayProps) {
+export default function TournamentDisplay({ gamesList, date }: TournamentDisplayProps) {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [matchResult, setMatches] = useState<Matches[]>([]);
 
   useEffect(() => {
-    const parsedDate = moment();
-
-    Match.getMatchesV1(parsedDate, gamesList)
+    Match.getMatchesV1(date, gamesList)
       .then((data) => {
         setIsLoaded(true);
         setMatches(data);
@@ -30,7 +29,7 @@ export default function TournamentDisplay({ gamesList }: TournamentDisplayProps)
       });
 
     const interval = setInterval(() => {
-      Match.getMatchesV1(parsedDate, gamesList)
+      Match.getMatchesV1(date, gamesList)
         .then((data) => {
 
           setIsLoaded(true);
@@ -44,7 +43,7 @@ export default function TournamentDisplay({ gamesList }: TournamentDisplayProps)
     return () => clearInterval(interval);
 
 
-  }, [gamesList]);
+  }, [date, gamesList]);
 
 
   return (
@@ -88,6 +87,4 @@ export default function TournamentDisplay({ gamesList }: TournamentDisplayProps)
         </Grid>}
     </span>
   );
-
-
 }
