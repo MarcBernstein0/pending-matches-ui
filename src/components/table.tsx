@@ -15,7 +15,7 @@ export default function CustomizedTables({ matchData }: TableProps): JSX.Element
     <table>
       <thead>
         <tr>
-          <th key={matchData.tournament_id} colSpan={3}>{matchData.game_name}</th>
+          <th key={matchData.tournament_id} colSpan={4}>{matchData.game_name}</th>
         </tr>
       </thead>
       <thead>
