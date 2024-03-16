@@ -33,8 +33,7 @@ const requests = {
 export const Match = {
     getMatchesV1: (date: Moment, gamesList: string[]): Promise<Matches[]> => {
         const params = {
-            // date: date.format("YYYY-MM-DD"),
-            date: '2024-02-23',
+            date: date.format("YYYY-MM-DD"),
             games: gamesList.toString()
         }
         return requests.get('/api/v1/matches', params);
